@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winkelmandje</title>
+</head>
+<body>
+
+<script>
+  var winkelmandje = ["Bananen", "Whiskey", "Chips", "Bonen", "Aardappelen"];
+  winkelmandje[1] = "Bier";
+
+
+  function addProduct(product) {
+    winkelmandje.push(product);
+
+    updateDisplay();
+  }
+
+
+  function updateDisplay() {
+
+    winkelmandje.sort();
+
+
+    document.body.innerHTML = "Het aantal producten in het winkelmandje is: " + winkelmandje.length;
+
+
+    document.body.appendChild(document.createElement("br"));
+
+
+    winkelmandje.forEach(function(product) {
+      var productElement = document.createElement("div");
+      productElement.innerText = product;
+      document.body.appendChild(productElement);
+    });
+
+
+
+
+    var addButton = document.createElement("button");
+    addButton.innerText = "Product Toevoegen";
+    addButton.addEventListener("click", function() {
+
+      addProduct(prompt("Voer het nieuwe product in:"));
+    });
+    document.body.appendChild(addButton);
+
+
+    document.body.appendChild(document.createElement("br"));
+  }
+
+  updateDisplay();
+</script>
+
+</body>
+</html>

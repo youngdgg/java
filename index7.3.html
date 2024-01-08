@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clicker Game</title>
+</head>
+<body>
+
+<p>Huidig getal: <span id="display">0</span></p>
+<button id="clickButton">Klik hier!</button>
+
+<script>
+  // Haal het element op waar het getal wordt weergegeven
+  const displayElement = document.getElementById('display');
+  
+  // Haal de knop op waarop gebruikers kunnen klikken
+  const clickButton = document.getElementById('clickButton');
+  
+  // Huidige waarde van het getal
+  let currentValue = 0;
+  
+  // Update de weergave van het getal op het scherm
+  function updateDisplay() {
+    displayElement.textContent = currentValue;
+  }
+  
+  // Voeg een eventlistener toe aan de knop
+  clickButton.addEventListener('click', function() {
+    currentValue++; // Verhoog het getal met 1
+    
+    // Als het getal 10 bereikt, reset het naar 0
+    if (currentValue === 10) {
+      currentValue = 0;
+    }
+    
+    // Update de weergave van het getal
+    updateDisplay();
+  });
+</script>
+
+</body>
+</html>

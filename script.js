@@ -1,15 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     var bewegendeDiv = document.getElementById("bewegendeDiv");
     var positie = 0;
+    var richting = 1;
 
-    function beweegNaarRechts() {
-        positie += 5;
+    function beweeg() {
+        positie += 5 * richting;
 
-        if (positie <= window.innerWidth - bewegendeDiv.offsetWidth) {
-            bewegendeDiv.style.left = positie + "px";
-            requestAnimationFrame(beweegNaarRechts);
+        if (positie <= 0) {
+            richting = 1;
+        } else if (positie >= window.innerWidth - bewegendeDiv.offsetWidth) {
+            richting = -1;
         }
+
+        bewegendeDiv.style.left = positie + "px";
+
+        requestAnimationFrame(beweeg);
     }
 
-    beweegNaarRechts();
+    beweeg();
 });

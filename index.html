@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tafel van 10</title>
 </head>
 <body>
-    <h1 id="kop1">welkom</h1>
-    <script src="app.js"></script>
+
+    <h2>Tafel van 10</h2>
+
+    <script>
+        document.write("<ul>");
+        for (let i = 1; i <= 10; i++) {
+            let resultaat = i * 10;
+            document.write("<li>" + i + " x 10 = " + resultaat + "</li>");
+        }
+        document.write("</ul>");
+    </script>
 
 </body>
 </html>
